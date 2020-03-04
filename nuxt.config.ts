@@ -1,4 +1,4 @@
-import { Configuration } from '@nuxt/types'
+import { Configuration } from '@nuxt/types';
 
 const nuxtConfig: Configuration = {
   mode: 'spa',
@@ -13,10 +13,10 @@ const nuxtConfig: Configuration = {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        content: process.env.npm_package_description || '',
+      },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   /*
    ** Customize the progress-bar color
@@ -34,11 +34,9 @@ const nuxtConfig: Configuration = {
    ** Nuxt.js dev-modules
    */
   buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
-    '@nuxt/typescript-build'
+    '@nuxt/typescript-build',
   ],
   /*
    ** Nuxt.js modules
@@ -46,7 +44,7 @@ const nuxtConfig: Configuration = {
   modules: [
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
   ],
   /*
    ** Build configuration
@@ -55,8 +53,13 @@ const nuxtConfig: Configuration = {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
-  }
-}
+    // extend(config, ctx) {},
+  },
+  typescript: {
+    typeCheck: {
+      eslint: true,
+    },
+  },
+};
 
-module.exports = nuxtConfig
+module.exports = nuxtConfig;

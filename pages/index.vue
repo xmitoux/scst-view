@@ -25,13 +25,14 @@
 </template>
 
 <script>
+import { defineComponent } from '@vue/composition-api';
 import Logo from '~/components/Logo.vue';
 
-export default {
+export default defineComponent({
   components: {
     Logo,
   },
-};
+});
 </script>
 
 <style>

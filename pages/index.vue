@@ -38,7 +38,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style lang="scss">
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -46,6 +46,10 @@ export default defineComponent({
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  div {
+    background-color: aqua;
+  }
 }
 
 .title {

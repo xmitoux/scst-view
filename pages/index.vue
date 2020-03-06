@@ -21,6 +21,9 @@
         </a>
       </div>
     </div>
+    <v-btn color="primary" fab small dark>
+      <v-icon>mdi-plus</v-icon>
+    </v-btn>
   </div>
 </template>
 

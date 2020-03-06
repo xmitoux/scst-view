@@ -37,6 +37,7 @@ const nuxtConfig: Configuration = {
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
     '@nuxt/typescript-build',
+    '@nuxtjs/vuetify',
   ],
   /*
    ** Nuxt.js modules
@@ -55,10 +56,15 @@ const nuxtConfig: Configuration = {
      */
     // extend(config, ctx) {},
   },
+
   typescript: {
     typeCheck: {
       eslint: true,
     },
+  },
+
+  vuetify: {
+    /* module options */
   },
 };
 

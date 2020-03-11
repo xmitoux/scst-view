@@ -21,17 +21,57 @@
         </a>
       </div>
     </div>
-    <v-btn color="primary" fab small dark>
-      <v-icon>mdi-plus</v-icon>
+    <v-btn color="primary" fab small dark @click="redirectToTwitterLogin">
+      <v-icon>mdi-twitter</v-icon>
     </v-btn>
   </div>
 </template>
 
-<script>
-import { defineComponent } from '@vue/composition-api';
+<script lang="ts">
+import { defineComponent, onMounted } from '@vue/composition-api';
+import firebase from '~/plugins/firebase';
 import Logo from '~/components/Logo.vue';
 
+const provider = new firebase.auth.TwitterAuthProvider();
+
 export default defineComponent({
+  setup() {
+    onMounted(() => {
+      firebase
+        .auth()
+        .getRedirectResult()
+        .then(result => {
+          if (result.credential) {
+            // This gives you a the Twitter OAuth 1.0 Access Token and Secret.
+            // You can use these server side with your app's credentials to access the Twitter API.
+            // const token = result.credential.accessToken;
+            // const secret = result.credential.secret;
+            // ...
+          }
+          // The signed-in user info.
+          const user = result.user;
+          console.log(user);
+        })
+        .catch(error => {
+          // Handle Errors here.
+          // const errorCode = error.code;
+          // const errorMessage = error.message;
+          // // The email of the user's account used.
+          // const email = error.email;
+          // // The firebase.auth.AuthCredential type that was used.
+          // const credential = error.credential;
+          // // ...
+          console.log(error);
+        });
+    });
+    const redirectToTwitterLogin = () =>
+      firebase.auth().signInWithRedirect(provider);
+
+    return {
+      redirectToTwitterLogin,
+    };
+  },
+
   components: {
     Logo,
   },

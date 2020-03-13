@@ -12,6 +12,8 @@ import { defineComponent } from '@vue/composition-api';
 import firebase from '~/plugins/firebase';
 
 export default defineComponent({
+  middleware: 'notAuthenticated',
+
   setup(_, context) {
     const signInWithTwtter = () => {
       const provider = new firebase.auth.TwitterAuthProvider();

@@ -57,7 +57,19 @@ const nuxtConfig: Configuration = {
     /*
      ** You can extend webpack config here
      */
-    // extend(config, ctx) {},
+    extend(_, ctx) {
+      const vueloader = ctx.loaders.vue;
+      if (vueloader)
+        vueloader.transformAssetUrls = {
+          video: ['src', 'poster'],
+          source: 'src',
+          img: 'src',
+          image: ['xlink:href', 'href'],
+          use: ['xlink:href', 'href'],
+          'v-img': ['src', 'lazy-src'],
+        };
+    },
+
     babel: {
       presets({ isServer }) {
         return [

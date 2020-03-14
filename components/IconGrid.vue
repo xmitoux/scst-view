@@ -1,8 +1,15 @@
 <template>
-  <v-container>
-    <div v-for="src in srcList" :key="src">
-      <v-img :src="requireSrc(src)" />
-    </div>
+  <v-container fluid>
+    <v-row dense>
+      <v-col v-for="src in srcList" :key="src" cols="3" sm="2" lg="1">
+        <v-img
+          v-ripple
+          :src="requireSrc(src)"
+          aspect-ratio="1"
+          class="grey lighten-2"
+        />
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

@@ -1,6 +1,5 @@
 # scst-volculator
 
-> Voltage calculator for LoveLive! School Idol Festival ALL STARS.
 
 ## Build Setup
 
